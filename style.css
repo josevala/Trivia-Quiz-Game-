@@ -1,4 +1,6 @@
+
 body{
+    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,6 +10,7 @@ h1{
     text-shadow: 0.5px 0.5px rgb(244, 194, 132);
     text-decoration-color: beige;
     font-size: 40px;
+    flex-wrap: wrap;
 }
 
 #input{
@@ -15,7 +18,7 @@ h1{
     color: beige;
     background-color:rgb(66, 68, 87) ;
     align-content: center;
-    padding: 15px 15px ;
+    padding: 20px 20px ;
     font-size: 30px;
     
 }
@@ -38,6 +41,8 @@ h1{
     box-shadow: 10px 10px #455a64;
 }
 #container{
+    
+padding: 15px;
 display: inline-flex;
 height:300px;
 width: 800px;
@@ -83,4 +88,8 @@ justify-content: center;
     margin-left: 20px;
     margin-right: 20px;
     box-shadow: 10px 10px #455a64;
+}
+#score{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
