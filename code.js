@@ -31,39 +31,56 @@ let answer2 = "";
 let answer3 = "";
 
 
-fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
+fetch(`https://opentdb.com/api.php?amount=1`)
   .then ((response) => response.json())
   .then((data)=>{
-   category1 = data.category.title;
-   oneQuestion= data.question;
-   answer1 = data.answer;
-   console.log(data.category);
-     console.log(data.question);
-     console.log(data.answer);
+    data.results.map((dQuestion) => {
+       oneQuestion = 
+         dQuestion.question
+      
+       answer1 = dQuestion.correct_answer
+         console.log(oneQuestion)
+         console.log(answer1)
+
+         category1 = dQuestion.category
+    }) 
+   console.log(category1);
+     
     
 });
 
-fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
+fetch(`https://opentdb.com/api.php?amount=1`)
   .then ((response) => response.json())
   .then((data)=>{
-    category2 = data.category.title;
-   twoQuestion= data.question;
-   answer2 = data.answer;
-   console.log(data.category);
-     console.log(data.question);
-     console.log(data.answer);
+    data.results.map((dQuestion) => {
+       twoQuestion= 
+         dQuestion.question
+      
+       answer2 = dQuestion.correct_answer
+         console.log(twoQuestion)
+         console.log(answer2)
+         category2 = dQuestion.category
+         console.log(category2)
+
+    })  
 });
 
-fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
+fetch(`https://opentdb.com/api.php?amount=1`)
   .then ((response) => response.json())
   .then((data)=>{
-    category3 = data.category.title;
-   threeQuestion= data.question;
-   answer3 = data.answer;
-   console.log(data.category);
-     console.log(data.question);
-     console.log(data.answer);
+    data.results.map((dQuestion) => {
+       threeQuestion= 
+         dQuestion.question
+      
+       answer3 = dQuestion.correct_answer
+         console.log(threeQuestion)
+         console.log(answer3)
+         category3 = dQuestion.category
+         console.log(category3)
+
+    })  
 });
+
 
 quest.style.display = "none";
 start.addEventListener("click",display3);
@@ -181,40 +198,56 @@ function checkingQuestions(){
         score.style.display = "block";
         score.innerHTML = `Score:${userScore += 1}`;
         textArea.value = "";
-         fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
-         .then ((response) => response.json())
-         .then((data)=>{
-          category1 = data.category.title;
-          oneQuestion= data.question;
-          answer1 = data.answer;
-          console.log(data.category);
-            console.log(data.question);
-            console.log(data.answer);
+        fetch(`https://opentdb.com/api.php?amount=1`)
+        .then ((response) => response.json())
+        .then((data)=>{
+          data.results.map((dQuestion) => {
+             oneQuestion = 
+               dQuestion.question
+            
+             answer1 = dQuestion.correct_answer
+               console.log(oneQuestion)
+               console.log(answer1)
+      
+               category1 = dQuestion.category
+          }) 
+         console.log(category1);
+           
             question1.innerHTML =`${category1}`;
        });
        
-       fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
-         .then ((response) => response.json())
-         .then((data)=>{
-           category2 = data.category.title;
-          twoQuestion= data.question;
-          answer2 = data.answer;
-          console.log(data.category);
-            console.log(data.question);
-            console.log(data.answer);
+       fetch(`https://opentdb.com/api.php?amount=1`)
+       .then ((response) => response.json())
+       .then((data)=>{
+         data.results.map((dQuestion) => {
+            twoQuestion= 
+              dQuestion.question
+           
+            answer2 = dQuestion.correct_answer
+              console.log(twoQuestion)
+              console.log(answer2)
+              category2 = dQuestion.category
+              console.log(category2)
+     
+         })  
             question2.innerHTML = `${category2}`;
        });
        
-       fetch(`https://jservice.kenzie.academy/api/random-clue?valid=true`)
-         .then ((response) => response.json())
-         .then((data)=>{
-             category3 = data.category.title;
-             threeQuestion= data.question;
-             answer3 = data.answer;
+       fetch(`https://opentdb.com/api.php?amount=1`)
+       .then ((response) => response.json())
+       .then((data)=>{
+         data.results.map((dQuestion) => {
+            threeQuestion= 
+              dQuestion.question
+           
+            answer3 = dQuestion.correct_answer
+              console.log(threeQuestion)
+              console.log(answer3)
+              category3 = dQuestion.category
+              console.log(category3)
+     
+         }) 
              question3.innerHTML = `${category3}`;
-             console.log(data.category);
-             console.log(data.question);
-             console.log(data.answer);
           });
           quest.style.display = "none";
           start.style.display = "none";
@@ -248,7 +281,7 @@ function checkingQuestions(){
 
        }   
       }
-console.log(localStorage.getItem("HighestScore"));
+
 function css(){
 time.style.color= "white";
 time.style.fontSize = "30px"
