@@ -29,66 +29,41 @@ let category3 = "";
 let answer1 = "";
 let answer2 = "";
 let answer3 = "";
-
-
-fetch(`https://opentdb.com/api.php?amount=1`)
-  .then ((response) => response.json())
-  .then((data)=>{
-    data.results.map((dQuestion) => {
-       oneQuestion = 
-         dQuestion.question
-      
-       answer1 = dQuestion.correct_answer
-         console.log(oneQuestion)
-         console.log(answer1)
-
-         category1 = dQuestion.category
-    }) 
-   console.log(category1);
-     
-    
+fetch(`https://opentdb.com/api.php?amount=3`)
+.then(response => response.json())
+.then(data => {
+  questions = data.results;
 });
 
-fetch(`https://opentdb.com/api.php?amount=1`)
-  .then ((response) => response.json())
-  .then((data)=>{
-    data.results.map((dQuestion) => {
-       twoQuestion= 
-         dQuestion.question
-      
-       answer2 = dQuestion.correct_answer
-         console.log(twoQuestion)
-         console.log(answer2)
-         category2 = dQuestion.category
-         console.log(category2)
+start.addEventListener("click", displayCategories);
 
-    })  
-});
-
-fetch(`https://opentdb.com/api.php?amount=1`)
-  .then ((response) => response.json())
-  .then((data)=>{
-    data.results.map((dQuestion) => {
-       threeQuestion= 
-         dQuestion.question
-      
-       answer3 = dQuestion.correct_answer
-         console.log(threeQuestion)
-         console.log(answer3)
-         category3 = dQuestion.category
-         console.log(category3)
-
-    })  
-});
-
+function displayCategories() {
+  start.style.display = "none";
+  container.style.display = "inline-flex";
+  container.style.alignContent = "center";
+  question1.innerHTML = questions[0].category;
+  oneQuestion = questions[0].question;
+  answer1 = questions[0].correct_answer;
+  console.log(oneQuestion + answer1);
+  question2.innerHTML = questions[1].category;
+  twoQuestion= questions[1].question;
+  answer2 = questions[1].correct_answer;
+  console.log(twoQuestion + answer2);
+  question3.innerHTML = questions[2].category;
+  threeQuestion= questions[2].question;
+  answer3 = questions[2].correct_answer;
+  console.log(threeQuestion + answer3);
+  cat.innerHTML = "Pick a Category:";
+  cat.style.color = "white";
+  cat.style.fontSize = "40px";
+  cat.style.textShadow = "3px 3px #546e7a";
+  btn.style.display = "none";
+  textArea.style.display = "none";
+}
 
 quest.style.display = "none";
-start.addEventListener("click",display3);
 score.style.display = "none";
 score.innerHTML = `Score:0`
-
-
-
 
 question1.addEventListener("click",firstQuestion);
 question2.addEventListener("click",secondQuestion);
@@ -133,21 +108,7 @@ function thirdQuestion(){
 
 }
 
-function display3(){
-  start.style.display = "none";
-container.style.display= "inline-flex";
-container.style.alignContent = "center";
-question1.innerHTML =`${category1}`;
-question2.innerHTML = `${category2}`;
-question3.innerHTML = `${category3}`;
-cat.innerHTML = "Pick a Category:"
-cat.style.color = "white"
-cat.style.fontSize = "40px";
-cat.style.textShadow = " 3px 3px #546e7a"
-topScore.style.display = "block";
-btn.style.display = "none";
-textArea.style.display = "none";
-}
+
    
 btn.addEventListener("click", checkingQuestions);
 btn.addEventListener("click",clearInterval(getTime));
@@ -198,57 +159,26 @@ function checkingQuestions(){
         score.style.display = "block";
         score.innerHTML = `Score:${userScore += 1}`;
         textArea.value = "";
-        fetch(`https://opentdb.com/api.php?amount=1`)
-        .then ((response) => response.json())
-        .then((data)=>{
-          data.results.map((dQuestion) => {
-             oneQuestion = 
-               dQuestion.question
-            
-             answer1 = dQuestion.correct_answer
-               console.log(oneQuestion)
-               console.log(answer1)
-      
-               category1 = dQuestion.category
-          }) 
-         console.log(category1);
-           
-            question1.innerHTML =`${category1}`;
-       });
-       
-       fetch(`https://opentdb.com/api.php?amount=1`)
-       .then ((response) => response.json())
-       .then((data)=>{
-         data.results.map((dQuestion) => {
-            twoQuestion= 
-              dQuestion.question
-           
-            answer2 = dQuestion.correct_answer
-              console.log(twoQuestion)
-              console.log(answer2)
-              category2 = dQuestion.category
-              console.log(category2)
-     
-         })  
-            question2.innerHTML = `${category2}`;
-       });
-       
-       fetch(`https://opentdb.com/api.php?amount=1`)
-       .then ((response) => response.json())
-       .then((data)=>{
-         data.results.map((dQuestion) => {
-            threeQuestion= 
-              dQuestion.question
-           
-            answer3 = dQuestion.correct_answer
-              console.log(threeQuestion)
-              console.log(answer3)
-              category3 = dQuestion.category
-              console.log(category3)
-     
-         }) 
-             question3.innerHTML = `${category3}`;
+        fetch(`https://opentdb.com/api.php?amount=3`)
+       .then(response => response.json())
+       .then(dataS => {
+             questions = dataS.results;
           });
+  question1.innerHTML = questions[0].category;
+  oneQuestion = questions[0].question;
+  answer1 = questions[0].correct_answer;
+  console.log(oneQuestion + answer1);
+  question2.innerHTML = questions[1].category;
+  twoQuestion= questions[1].question;
+  answer2 = questions[1].correct_answer;
+  console.log(twoQuestion + answer2);
+  question3.innerHTML = questions[2].category;
+  threeQuestion= questions[2].question;
+  answer3 = questions[2].correct_answer;
+  console.log(threeQuestion + answer3);
+         
+
+             
           quest.style.display = "none";
           start.style.display = "none";
           container.style.display= "inline-flex";
